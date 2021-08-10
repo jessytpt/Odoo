@@ -1,0 +1,88 @@
+<odoo>
+
+    <!-- explicit list view definition -->
+    <!--
+    <record model="ir.ui.view" id="atabla.form">
+      <field name="name">atabla form</field>
+      <field name="model">jessenia.atabla</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="age"/>
+          <field name="promedio"/>
+        </tree>
+      </field>
+    </record>
+-->
+    <record model="ir.ui.view" id="atabla_tree_view">
+      <field name="name">atabla.tree</field>
+      <field name="model">jessenia.atabla</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="age"/>
+          <field name="promedio"/>
+          <field name="tablab" />
+       </tree>
+      </field>
+    </record>
+   
+    <record model="ir.ui.view" id="btabla_tree_view">
+      <field name="name">btabla.tree</field>
+      <field name="model">jessenia.btabla</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="province"/>
+         </tree>
+      </field>
+    </record>
+   
+
+
+   <!-- actions opening views on models -->
+   
+    <record model="ir.actions.act_window" id="action_atabla">
+      <field name="name">TABLA A</field>
+      <field name="res_model">jessenia.atabla</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.actions.act_window" id="action_btabla">
+      <field name="name">TABLA B</field>
+      <field name="res_model">jessenia.btabla</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+      <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="jessenia.action_server">
+      <field name="name">jessenia server</field>
+      <field name="model_id" ref="model_jessenia_jessenia"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+    
+    <menuitem name="jessenia" id="jessenia.menu_root"/>
+    
+    <!-- menu categories -->
+    
+    <menuitem name="Menu 1" id="jessenia.menu_1" parent="jessenia.menu_root" action="action_atabla"/>
+    <menuitem name="Menu 2" id="jessenia.menu_2" parent="jessenia.menu_root" action="action_btabla"/>
+    
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="jessenia.menu_1_list" parent="jessenia.menu_1"
+              action="jessenia.action_window"/>
+    <menuitem name="Server to list" id="jessenia" parent="jessenia.menu_2"
+              action="jessenia.action_server"/>
+    -->
+
+</odoo>
